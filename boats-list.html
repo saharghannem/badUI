@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Boat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: orange;
+            background-color: #4f4f4f;
+            text-align: center;
+            font-size: 18px;
+            transform: rotate(-5deg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 50px;
+            margin-top: 100px;
+            margin-left: 20px;
+            transform: rotate(10deg);
+        }
+
+        header {
+            background-color: #f5a623;
+            padding: 40px;
+            transform: skewY(10deg);
+        }
+
+        .header-text {
+            font-size: 60px;
+            color: #bb2d3b;
+            text-shadow: 3px 3px 6px blue;
+            margin-top: 20px;
+            transform: skewX(-10deg);
+        }
+
+        .subheader-text {
+            font-size: 20px;
+            color: purple;
+            text-shadow: 1px 1px 15px white;
+            font-style: italic;
+        }
+
+        .boats-section {
+            margin-top: 150px;
+            background-color: #fdff00;
+            padding: 60px;
+            position: relative;
+            animation: float 4s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .boats-title {
+            font-size: 48px;
+            color: blue;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            font-family: "Arial", sans-serif;
+        }
+
+        .boat-listing {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            padding: 20px;
+            transform: rotate(5deg);
+        }
+
+        .boat-item {
+            background-color: #ff69b4;
+            border: 3px dotted green;
+            padding: 20px;
+            width: 200px;
+            height: 300px;
+            text-align: center;
+            position: relative;
+            margin: 20px;
+            transform: rotate(-10deg);
+            transition: transform 0.5s;
+        }
+
+        .boat-item:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .boat-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 10px 10px 20px #00ffcc;
+            border-radius: 50%;
+            transform: skewX(20deg);
+        }
+
+        .boat-name {
+            font-size: 22px;
+            color: darkviolet;
+            font-family: "Courier New", monospace;
+            margin-top: 15px;
+            text-shadow: 2px 2px 5px red;
+        }
+
+        .boat-price {
+            font-size: 18px;
+            color: yellow;
+            margin-top: 10px;
+            text-decoration: line-through;
+            text-transform: lowercase;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #8a2be2;
+            color: white;
+            font-size: 18px;
+            padding: 20px 40px;
+            border: 2px dashed red;
+            cursor: pointer;
+            margin-top: 30px;
+            transform: skewY(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+            color: black;
+            transform: rotate(360deg) scale(1.5);
+        }
+
+        footer {
+            background-color: #008080;
+            color: white;
+            font-size: 14px;
+            font-style: italic;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(-5deg);
+        }
+
+        .footer-text {
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 8px yellow;
+        }
+    </style>
+    <link rel="icon" type="image/png" href="WhatsApp Image 2024-12-06 at 6.09.21 AM.jpeg">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="header-text">Select a Boat</h1>
+            <p class="subheader-text">Choose your favorite boat from the selected brand!</p>
+        </header>
+
+        <section class="boats-section">
+            <h2 class="boats-title" id="boat-title">Boats from Brand 1</h2>
+
+            <div class="boat-listing" id="boat-list">
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">© 2024 Crazy Boat Deals. </p>
+        </footer>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const brand = urlParams.get('brand');
+        const boatTitle = document.getElementById('boat-title');
+        const boatList = document.getElementById('boat-list');
+
+        boatTitle.textContent = `Boats from ${brand}`;
+
+
+        const boats = {
+            brand1: [
+                { name: "alumacraft", price: "15000 Euro", image: "8951108_0_140720231847_1.webp" },
+                { name: "alumacraft2", price: "500000 dinar", image: "1_AluminiumFishingBoat.webp" }
+            ],
+            brand2: [
+                { name: "large bass cat ", price: "50004 Dollars", image: "8679085_20230202090119417_1_LARGE.webp" },
+                { name: "Fast Boat", price: "15000 Dollars", image: "8859322_0_140720231738_27.webp" }
+            ],
+            brand3: [
+                { name: "Thumb", price: "20000 Euro", image: "Thumb.webp" },
+                { name: "lund fishing", price: "120000 Dollars", image: "Lund-1875-fishing-e1357248682610.webp" }
+            ],
+            brand4: [
+                { name: "grady white boat", price: "500000 Euro", image: "attachment-171802626156743519966670015034ec.webp" },
+                { name: "fast grady boat", price: "120000 Dollars", image: "7513911-0-40025491.webp" }
+            ]
+        };
+
+        const selectedBoats = boats[brand] || [];
+        selectedBoats.forEach(boat => {
+            const boatItem = document.createElement('div');
+            boatItem.classList.add('boat-item');
+            boatItem.innerHTML = `
+                <img src="${boat.image}" alt="${boat.name}" class="boat-image">
+                <h3 class="boat-name">${boat.name}</h3>
+                <p class="boat-price">${boat.price}</p>
+                <button class="discover-button"><a href="payment.html?boat=${encodeURIComponent(boat.name)}">Select</a></button>
+            `;
+            boatList.appendChild(boatItem);
+        });
+    </script>
+</body>
+
+</html>

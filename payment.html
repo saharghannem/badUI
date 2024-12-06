@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="icon" type="image/png" href="WhatsApp Image 2024-12-06 at 6.09.21 AM.jpeg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: #ff6347;
+            background-color: #00ff00;
+            text-align: center;
+            font-size: 20px;
+            transform: rotate(10deg);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            padding: 50px;
+            margin-top: 100px;
+            transform: rotate(-5deg);
+            border: 5px dotted purple;
+        }
+
+        header {
+            background-color: #ff0;
+            padding: 30px;
+            transform: skewX(10deg);
+        }
+
+        .header-text {
+            font-size: 60px;
+            color: #ff1493;
+            text-shadow: 3px 3px 10px yellow;
+            font-weight: bold;
+            margin-top: 30px;
+            text-transform: uppercase;
+            transform: skewY(15deg);
+        }
+
+        .subheader-text {
+            font-size: 20px;
+            color: green;
+            text-shadow: 2px 2px 5px red;
+            font-style: italic;
+            text-transform: lowercase;
+        }
+
+        .form-section {
+            background-color: #ffcc00;
+            padding: 40px;
+            margin-top: 50px;
+            border: 3px dashed #000;
+            transform: skewY(-10deg);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+            animation: slide 3s infinite alternate;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(10px);
+            }
+
+            100% {
+                transform: translateX(-10px);
+            }
+        }
+
+        label {
+            font-size: 25px;
+            color: #ff4500;
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            transform: rotate(10deg);
+        }
+
+        input,
+        select {
+            padding: 10px;
+            font-size: 18px;
+            border: 3px solid purple;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            margin-bottom: 10px;
+            box-shadow: 5px 5px 15px #8a2be2;
+            transition: background-color 0.5s ease;
+        }
+
+        input:focus,
+        select:focus {
+            background-color: #ffff00;
+        }
+
+        button {
+            background-color: #8b008b;
+            color: white;
+            font-size: 20px;
+            padding: 20px 40px;
+            border: 2px dashed red;
+            cursor: pointer;
+            transform: rotate(-15deg);
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff0000;
+            color: #0000ff;
+            transform: rotate(360deg) scale(1.5);
+        }
+
+        footer {
+            background-color: #008080;
+            color: white;
+            font-size: 16px;
+            font-style: italic;
+            padding: 20px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(-10deg);
+        }
+
+        .footer-text {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 8px yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="header-text">Payment Form</h1>
+            <p class="subheader-text">Complete the payment for your selected boat!</p>
+        </header>
+
+        <section class="form-section">
+            <form action="submit-purchase.php" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="boat">Selected Boat:</label>
+                <input type="text" id="boat" name="boat" readonly>
+
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment">
+                    <option value="magic_beans">euro</option>
+                    <option value="dinar">dinar</option>
+                    <option value="dollars">Dollars</option>
+                </select>
+
+                <label for="card_id">Card ID:</label>
+                <input type="number" id="card_id" name="card_id" required>
+
+                <button type="submit">Submit Purchase</button>
+            </form>
+        </section>
+
+        <footer>
+            <p class="footer-text">© 2024 Crazy Boat Deals. Best of luck with your purchase!</p>
+        </footer>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const boatName = urlParams.get('boat');
+        const boatInput = document.getElementById('boat');
+
+        boatInput.value = boatName || "Boat not found";
+    </script>
+</body>
+
+</html>

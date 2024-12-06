@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Boat Brand</title>
+    <link rel="icon" type="image/png" href="WhatsApp Image 2024-12-06 at 6.09.21 AM.jpeg">
+    <style>
+        @keyframes bounceBody {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.05) rotate(10deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(-10deg);
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-align: center;
+            color: #ff00ff;
+            background-color: #00ff00;
+            position: relative;
+            overflow: hidden;
+            animation: bounceBody 6s infinite alternate;
+
+        }
+
+        @keyframes headerBounce {
+            0% {
+                top: 0;
+            }
+
+            50% {
+                top: 5px;
+            }
+
+            100% {
+                top: 0;
+            }
+        }
+
+        header {
+            background-color: yellow;
+            padding: 30px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(30deg);
+
+        }
+
+        @keyframes crazySlide {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(10px) rotate(15deg);
+            }
+
+            50% {
+                transform: translateX(-20px) rotate(-20deg);
+            }
+
+            75% {
+                transform: translateX(20px) rotate(30deg);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .brands-section {
+            padding: 50px;
+            background-color: #ff66cc;
+            border: 5px solid black;
+            position: absolute;
+            top: 150px;
+            left: 10%;
+            width: 100%;
+            animation: crazySlide 8s infinite alternate;
+
+        }
+
+        @keyframes bounceItem {
+            0% {
+                transform: rotate(45deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(45deg) translateY(-5px);
+
+            }
+
+            100% {
+                transform: rotate(45deg) translateY(0);
+            }
+        }
+
+        .brand-item {
+            background-color: lime;
+            border: 5px solid pink;
+            padding: 20px;
+            width: 200px;
+            height: auto;
+            font-size: 18px;
+            position: relative;
+            display: inline-block;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px purple;
+            transform: rotate(45deg);
+            animation: bounceItem 4s infinite alternate;
+
+        }
+
+        @keyframes spinImage {
+            0% {
+                transform: rotate(0deg) scale(1.2);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1.3);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1.2);
+            }
+        }
+
+        .brand-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            transform: rotate(20deg) scale(1.2);
+            animation: spinImage 6s infinite linear;
+
+        }
+
+
+        @keyframes bounceButton {
+            0% {
+                transform: translateX(-50%) rotate(90deg) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) rotate(90deg) translateY(5px);
+
+            }
+
+            100% {
+                transform: translateX(-50%) rotate(90deg) translateY(0);
+            }
+        }
+
+        button {
+            background-color: orange;
+            color: red;
+            font-size: 20px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            box-shadow: 2px 2px 10px blue;
+            transition: transform 0.5s ease;
+            animation: bounceButton 6s infinite alternate;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="header-text">Select a Boat Brand</h1>
+        <p class="subheader-text">Choose from our amazing boat brands!</p>
+    </header>
+
+    <section class="brands-section">
+        <h2 class="brands-title">Our Top Brands</h2>
+
+        <div class="brand-listing">
+            <div class="brand-item" id="vibrating">
+                <img src="electric-car.gif" alt="Brand 1" class="brand-image">
+                <img src="alumacraft.webp">
+                <h3 class="brand-name">Brand 1</h3>
+                <button class="discover-button">
+                    <a href="boats-list.html?brand=brand1">Select Brand 1</a>
+                </button>
+            </div>
+
+            <div class="brand-item" id="spinning">
+                <img src="33011_1.webp" alt="Brand 2" class="brand-image">
+                <h3 class="brand-name">Brand 2</h3>
+                <button class="discover-button">
+                    <a href="boats-list.html?brand=brand2">Select Brand 2</a>
+                </button>
+            </div>
+
+            <div class="brand-item">
+                <img src="il_600x600.2323227885_s9oo.webp" alt="Brand 3" class="brand-image">
+                <h3 class="brand-name">Brand 3</h3>
+                <button class="discover-button">
+                    <a href="boats-list.html?brand=brand3">Select Brand 3</a>
+                </button>
+            </div>
+            <div class="brand-item">
+                <img src="grady white.webp" alt="Brand 4" class="brand-image">
+                <h3 class="brand-name">Brand 4</h3>
+                <button class="discover-button">
+                    <a href="boats-list.html?brand=brand4">Select Brand 4</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">© 2024Crazy Boat Deals. </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

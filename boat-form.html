@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boat Purchase Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="WhatsApp Image 2024-12-06 at 6.09.21 AM.jpeg">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Boat Purchase Form</h1>
+            <p>Fill out the form to buy your boat... if you dare!</p>
+        </header>
+
+        <section class="form-section">
+            <form action="submit-purchase.php" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="boat">Selected Boat:</label>
+                <input type="text" id="boat" name="boat" value="Boat Name">
+
+                <label for="payment">Payment Method:</label>
+                <select id="payment" name="payment">
+                    <option value="magic_beans">Euro</option>
+                    <option value="dinar">dinar</option>
+                    <option value="dollars">Dollars</option>
+                </select>
+
+                <label for="card_id">Card ID:</label>
+                <input type="number" id="card_id" name="card_id" required>
+
+                <button type="submit">Submit Purchase</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>© 2024 BUY A BOAT - Crazy Boat Deals. Best of luck with your purchase!</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
